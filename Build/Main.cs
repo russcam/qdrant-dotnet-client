@@ -34,7 +34,7 @@ Target(CleanPackOutput, () =>
 Target(Pack, DependsOn(Build, CleanPackOutput), () =>
 {
 	var outputDir = Directory.CreateDirectory(packOutput);
-	Run("dotnet", $"pack QdrantNet/QdrantNet.csproj -c Release -o \"{outputDir.FullName}\" --no-build --nologo");
+	Run("dotnet", $"pack src/QdrantNet/QdrantNet.csproj -c Release -o \"{outputDir.FullName}\" --no-build --nologo");
 });
 
 Target(Default, DependsOn(Test));
