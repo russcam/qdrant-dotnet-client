@@ -1,0 +1,26 @@
+﻿using FluentAssertions;
+using Grpc.Net.Client;
+using Qdrant;
+using Xunit;
+
+namespace QdrantNet.Tests;
+
+[Collection("Qdrant")]
+public class HealthTests
+{
+    private readonly QdrantGrpcClient _client;
+
+    public HealthTests(QdrantFixture qdrantFixture)
+    {
+        var address = GrpcChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
+        _client = new QdrantGrpcClient(address);
+    }
+
+    [Fact]
+    public void HealthCheck()
+    {
+        var response = _client.Qdrant.HealthCheck(new HealthCheckRequest());
+        response.Title.Should().NotBeNullOrEmpty();
+        response.Version.Should().NotBeNullOrEmpty();
+    }
+}
