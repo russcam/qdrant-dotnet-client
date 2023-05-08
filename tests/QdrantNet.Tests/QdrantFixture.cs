@@ -13,8 +13,9 @@ public sealed class QdrantFixture : IAsyncLifetime
     public string Host => _container.Hostname;
 
     public ushort HttpPort => _container.GetMappedPublicPort(QdrantBuilder.QdrantHttpPort);
+
     public ushort GrpcPort => _container.GetMappedPublicPort(QdrantBuilder.QdrantGrpcPort);
-    
+
     public Task InitializeAsync() => _container.StartAsync();
 
     public Task DisposeAsync() => _container.DisposeAsync().AsTask();

@@ -23,4 +23,12 @@ public class HealthTests
         response.Title.Should().NotBeNullOrEmpty();
         response.Version.Should().NotBeNullOrEmpty();
     }
+
+    [Fact]
+    public async Task HealthCheckAsync()
+    {
+	    var response = await _client.Qdrant.HealthCheckAsync(new HealthCheckRequest());
+	    response.Title.Should().NotBeNullOrEmpty();
+	    response.Version.Should().NotBeNullOrEmpty();
+    }
 }

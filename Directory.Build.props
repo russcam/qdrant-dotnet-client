@@ -11,9 +11,14 @@
   <PropertyGroup>
     <SolutionRoot>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.bat))</SolutionRoot>
     <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
+    <MinVerIgnoreHeight>true</MinVerIgnoreHeight>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IsPackable>False</IsPackable>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="4.3.0" PrivateAssets="all"/>
+  </ItemGroup>
 </Project>
