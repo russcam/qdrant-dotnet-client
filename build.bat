@@ -1,2 +1,2 @@
 @echo Off
-dotnet run --project Build -- %*
+dotnet run --project build -- %*
