@@ -4,7 +4,7 @@ using Moq;
 using Qdrant;
 using Xunit;
 
-namespace QdrantNet.Tests;
+namespace Qdrant.Grpc.Tests;
 
 public class MockingTests
 {
@@ -12,7 +12,7 @@ public class MockingTests
 	public void CanMockClientCalls()
 	{
 		var client = new Mock<QdrantGrpcClient>();
-		var qdrant = new Mock<Qdrant.Qdrant.QdrantClient>();
+		var qdrant = new Mock<Qdrant.QdrantClient>();
 
 		qdrant.Setup(q =>
 				q.HealthCheck(

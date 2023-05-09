@@ -3,7 +3,7 @@ using Grpc.Net.Client;
 using Qdrant;
 using Xunit;
 
-namespace QdrantNet.Tests;
+namespace Qdrant.Grpc.Tests;
 
 [Collection("Qdrant")]
 public class HealthTests

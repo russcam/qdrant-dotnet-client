@@ -1,7 +1,7 @@
 ﻿using Docker.DotNet.Models;
 using DotNet.Testcontainers.Configurations;
 
-namespace QdrantNet.Tests.Container;
+namespace Qdrant.Grpc.Tests.Container;
 
 public sealed class QdrantConfiguration : ContainerConfiguration
 {

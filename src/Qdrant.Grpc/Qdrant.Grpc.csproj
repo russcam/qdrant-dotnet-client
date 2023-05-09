@@ -27,7 +27,7 @@
 
   <PropertyGroup>
     <GeneratedText><![CDATA[
-namespace QdrantNet%3B
+namespace Qdrant.Grpc%3B
 
 public partial class QdrantGrpcClient
 {

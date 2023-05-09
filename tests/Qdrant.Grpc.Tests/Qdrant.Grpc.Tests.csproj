@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\QdrantNet\QdrantNet.csproj" />
+      <ProjectReference Include="..\..\src\Qdrant.Grpc\Qdrant.Grpc.csproj" />
     </ItemGroup>
 
 </Project>

@@ -2,7 +2,6 @@
 using System.IO.Compression;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
-using System.Xml;
 using System.Xml.Linq;
 using Bullseye;
 using SharpCompress.Readers;
@@ -13,9 +12,11 @@ using static SimpleExec.Command;
 const string envVarMissing = " environment variable is missing. Aborting.";
 const string packOutput = "nuget";
 const string protosDir = "protos";
+const string project = "Qdrant.Grpc";
 
 var doc = XDocument.Load("Directory.Build.props");
-var qdrantVersion = doc.Descendants(XName.Get("QdrantVersion", "http://schemas.microsoft.com/developer/msbuild/2003")).First().Value;
+var qdrantVersion = doc.Descendants(XName.Get("QdrantVersion", "http://schemas.microsoft.com/developer/msbuild/2003"))
+	.First().Value;
 
 var cmd = new RootCommand
 {
@@ -96,7 +97,7 @@ cmd.SetHandler(async () =>
 	{
 		var outputDir = Directory.CreateDirectory(packOutput);
 		Run("dotnet",
-			$"pack src/QdrantNet/QdrantNet.csproj -c Release -o \"{outputDir.FullName}\" --no-build --nologo");
+			$"pack src/{project}/{project}.csproj -c Release -o \"{outputDir.FullName}\" --no-build --nologo");
 	});
 
 	Target(Default, DependsOn(Test));

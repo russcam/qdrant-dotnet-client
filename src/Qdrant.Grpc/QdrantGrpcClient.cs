@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using Qdrant;
 
-namespace QdrantNet;
+namespace Qdrant.Grpc;
 
 /// <summary>
 /// gRPC client for qdrant vector database
@@ -28,7 +28,7 @@ public partial class QdrantGrpcClient
 	/// <summary>
 	/// Gets the client for Qdrant services
 	/// </summary>
-	public virtual Qdrant.Qdrant.QdrantClient Qdrant => new(_callInvoker);
+	public virtual Qdrant.QdrantClient Qdrant => new(_callInvoker);
 
 	/// <summary>
 	/// Gets the client for Points

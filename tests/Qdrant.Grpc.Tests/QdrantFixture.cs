@@ -1,7 +1,7 @@
-﻿using QdrantNet.Tests.Container;
+﻿using Qdrant.Grpc.Tests.Container;
 using Xunit;
 
-namespace QdrantNet.Tests;
+namespace Qdrant.Grpc.Tests;
 
 [CollectionDefinition("Qdrant")]
 public sealed class QdrantCollection : ICollectionFixture<QdrantFixture> { }
