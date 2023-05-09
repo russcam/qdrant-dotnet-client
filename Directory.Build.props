@@ -7,6 +7,7 @@
     <RepositoryUrl>https://github.com/russcam/qdrant-dotnet-client</RepositoryUrl>
     <PackageProjectUrl>https://github.com/russcam/qdrant-dotnet-client</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/russcam/qdrant-dotnet-client/releases</PackageReleaseNotes>
+    <QdrantVersion>v1.1.3</QdrantVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SolutionRoot>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.bat))</SolutionRoot>

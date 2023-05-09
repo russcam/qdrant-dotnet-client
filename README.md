@@ -14,6 +14,8 @@ dotnet add package QdrantNet --version 1.0.0-alpha1
 
 ### Usage
 
+The `QdrantGrpcClient` can be used to interact with all of qdrant's gRPC services
+
 ```csharp
 using QdrantNet;
 
