@@ -7,7 +7,7 @@ A .NET gRPC client for [Qdrant vector database](https://qdrant.tech/).
 ### Installing
 
 ```sh
-dotnet add package Qdrant.Grpc --version 1.0.0-alpha1
+dotnet add package Qdrant.Grpc --version 1.0.0-alpha.1
 ```
 
 ### Usage
