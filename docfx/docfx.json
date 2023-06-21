@@ -1,0 +1,36 @@
+{
+  "metadata": [],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "index.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "modern"
+    ],
+    "postProcessors": [],
+    "globalMetadata": {
+      "_appTitle": "Qdrant .NET client",
+      "_appName": "Qdrant .NET client",
+      "_appLogoPath": "images/qdrant.png",
+      "_appFaviconPath": "images/qdrant.png",
+      "_appFooter": "<span>Made by <a href=\"https://forloop.co.uk\">forloop</a></span>"
+    },
+    "keepFileLink": false,
+    "disableGitFeatures": false
+  }
+}

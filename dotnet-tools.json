@@ -13,6 +13,12 @@
       "commands": [
         "nupkg-validator"
       ]
+    },
+    "docfx": {
+      "version": "2.67.5",
+      "commands": [
+        "docfx"
+      ]
     }
   }
 }
