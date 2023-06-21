@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{178B0A64-7
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "examples\Examples\Examples.csproj", "{35FD9A22-2CC1-4C1E-88D9-732E856F4DA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{C202A4B5-DE75-424E-B3A2-A3BF4123FB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C202A4B5-DE75-424E-B3A2-A3BF4123FB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C202A4B5-DE75-424E-B3A2-A3BF4123FB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FD9A22-2CC1-4C1E-88D9-732E856F4DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FD9A22-2CC1-4C1E-88D9-732E856F4DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FD9A22-2CC1-4C1E-88D9-732E856F4DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FD9A22-2CC1-4C1E-88D9-732E856F4DA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
