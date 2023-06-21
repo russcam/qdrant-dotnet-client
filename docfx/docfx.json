@@ -1,41 +1,10 @@
 {
-  "metadata": [
-    {
-      "src": [
-        {
-          "files": [
-            "src/Qdrant.Grpc/Qdrant.Grpc.csproj"
-          ],
-          "src": "../"
-        }
-      ],
-      "dest": "api",
-      "properties": {
-        "TargetFramework": "net7.0"
-      },
-      "includePrivateMembers": false,
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false,
-      "noRestore": false,
-      "namespaceLayout": "flattened",
-      "memberLayout": "samePage",
-      "allowCompilationErrors": false
-    }
-  ],
+  "metadata": [],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
-        ]
-      },
-      {
-        "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "toc.yml",
-          "*.md"
+          "index.md"
         ]
       }
     ],
