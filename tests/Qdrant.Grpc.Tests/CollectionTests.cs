@@ -19,16 +19,38 @@ public class CollectionTests
 	[Fact]
 	public void CanCreateCollection()
 	{
-		var response = _client.Collections.Create(new CreateCollection
+		var createResponse = _client.Collections.Create(new CreateCollection
 		{
-			CollectionName = nameof(CanCreateCollection),
+			CollectionName = "collection_1",
 			VectorsConfig = new VectorsConfig
 			{
 				Params = new VectorParams { Size = 4, Distance = Distance.Cosine }
 			}
 		});
 
-		response.Result.Should().BeTrue();
-		response.Time.Should().BeGreaterThan(0);
+		createResponse.Result.Should().BeTrue();
+		createResponse.Time.Should().BeGreaterThan(0);
+	}
+
+	[Fact]
+	public async Task CanDeleteCollection()
+	{
+		var createResponse = await _client.Collections.CreateAsync(new CreateCollection
+		{
+			CollectionName = "collection_2",
+			VectorsConfig = new VectorsConfig
+			{
+				Params = new VectorParams { Size = 4, Distance = Distance.Cosine }
+			}
+		});
+
+		createResponse.Result.Should().BeTrue();
+
+		var deleteResponse = await _client.Collections.DeleteAsync(new DeleteCollection
+		{
+			CollectionName = "collection_2",
+		});
+
+		createResponse.Result.Should().BeTrue();
 	}
 }

@@ -6,7 +6,7 @@ namespace Qdrant.Grpc.Tests.Container;
 
 public sealed class QdrantBuilder : ContainerBuilder<QdrantBuilder, QdrantContainer, QdrantConfiguration>
 {
-    public const string QdrantImage = "qdrant/qdrant:v1.1.3";
+    public const string QdrantImage = "qdrant/qdrant:v1.2.2";
 
     public const ushort QdrantHttpPort = 6333;
 
@@ -17,6 +17,15 @@ public sealed class QdrantBuilder : ContainerBuilder<QdrantBuilder, QdrantContai
 
     private QdrantBuilder(QdrantConfiguration dockerResourceConfiguration) : base(dockerResourceConfiguration) =>
 	    DockerResourceConfiguration = dockerResourceConfiguration;
+
+    public QdrantBuilder WithConfigFile(string configPath) =>
+	    Merge(DockerResourceConfiguration, new QdrantConfiguration())
+		    .WithBindMount(configPath, "/qdrant/config/custom_config.yaml");
+
+    public QdrantBuilder WithCertificate(string certPath, string keyPath) =>
+	    Merge(DockerResourceConfiguration, new QdrantConfiguration())
+		    .WithBindMount(certPath, "/qdrant/tls/cert.pem")
+		    .WithBindMount(keyPath, "/qdrant/tls/key.pem");
 
     public override QdrantContainer Build()
     {

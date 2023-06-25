@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/russcam/qdrant-dotnet-client</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/russcam/qdrant-dotnet-client/releases</PackageReleaseNotes>
     <PackageTags>qdrant, database, vector, search</PackageTags>
-    <QdrantVersion>v1.2.2</QdrantVersion>
+    <QdrantVersion>v1.1.3</QdrantVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SolutionRoot>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.bat))</SolutionRoot>
@@ -18,6 +18,12 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IsPackable>False</IsPackable>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+
+    <DefineConstants Condition="'$(TargetFramework)'=='net462' or '$(TargetFramework)'=='net471'">$(DefineConstants);FULLFRAMEWORK</DefineConstants>
+    <DefineConstants Condition="$(DefineConstants.Contains(FULLFRAMEWORK)) == False">$(DefineConstants);DOTNETCORE</DefineConstants>
+    <DefineConstants Condition="$(DefineConstants.Contains(FULLFRAMEWORK)) == False and '$(TargetFramework)'!='netstandard2.0'">$(DefineConstants);DOTNETCORE_2_1_OR_HIGHER</DefineConstants>
+    <DefineConstants Condition="$(DefineConstants.Contains(FULLFRAMEWORK)) == False  and '$(TargetFramework)'!='netstandard2.0' and '$(TargetFramework)'!='netstandard2.1'">$(DefineConstants);DOTNETCORE_3_1_OR_HIGHER</DefineConstants>
+
   </PropertyGroup>
 
   <ItemGroup>
