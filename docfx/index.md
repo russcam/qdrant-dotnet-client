@@ -1,8 +1,10 @@
 # Qdrant .NET client
 
-A .NET gRPC client for [Qdrant vector database](https://qdrant.tech/).
+[![NuGet Release][QdrantGrpc-image]][QdrantGrpc-nuget-url]
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Frusscam%2Fqdrant-dotnet-client%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/russcam/qdrant-dotnet-client/goto?ref=main)
+[![Documentation][ElasticApm-image]][Documentation-url]
 
-## Getting started
+A .NET gRPC client for [Qdrant vector database](https://qdrant.tech/).
 
 ### Installing
 
@@ -12,41 +14,12 @@ The [gRPC client is available on nuget](https://www.nuget.org/packages/Qdrant.Gr
 dotnet add package Qdrant.Grpc
 ```
 
-### Creating the client
+See [quickstart](documentation/quickstart.md) for getting started.
 
-Create a new instance of the client with
+[Documentation-url]:https://forloop.co.uk/qdrant-dotnet-client/
+[ElasticApm-image]:
+https://img.shields.io/badge/Documentation-blue
 
-[!code-csharp[](../examples/Examples/Client.cs#CreateClient)]
-
-The client is thread safe, so create a single instance and reuse it.
-
-### Creating a collection
-
-Create a new collection with
-
-[!code-csharp[](../examples/Examples/Collections.cs#CreateCollection)]
-
-### Indexing
-
-Points are the central entity that Qdrant operates with. A point has a vector and an optional payload.
-Points can be indexed with
-
-[!code-csharp[](../examples/Examples/Points.cs#Upsert)]
-
-The write ordering
-
-### Search
-
-To perform an Approximate Nearest Neighbour (ANN) search 
-
-[!code-csharp[](../examples/Examples/Points.cs#Search)]
-
-This will return the nearest neighbours up to the limit specified.
-
-### Deleting a collection
-
-Delete an existing collection with
-
-[!code-csharp[](../examples/Examples/Collections.cs#DeleteCollection)]
-
-The timeout specifies how long to wait for the operation to commit.
+[QdrantGrpc-nuget-url]:https://www.nuget.org/packages/Qdrant.Grpc/
+[QdrantGrpc-image]:
+https://img.shields.io/nuget/v/Qdrant.Grpc.svg
