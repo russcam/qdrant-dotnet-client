@@ -4,7 +4,10 @@
     "content": [
       {
         "files": [
-          "index.md"
+          "documentation/**.md",
+          "documentation/**/toc.yml",
+          "toc.yml",
+          "*.md"
         ]
       }
     ],
