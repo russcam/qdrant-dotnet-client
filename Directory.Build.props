@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/russcam/qdrant-dotnet-client</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/russcam/qdrant-dotnet-client/releases</PackageReleaseNotes>
     <PackageTags>qdrant, database, vector, search</PackageTags>
-    <QdrantVersion>v1.2.2</QdrantVersion>
+    <QdrantVersion>v1.3.0</QdrantVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SolutionRoot>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.bat))</SolutionRoot>
