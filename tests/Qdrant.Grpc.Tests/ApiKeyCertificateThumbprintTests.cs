@@ -13,7 +13,11 @@ public class ApiKeyCertificateThumbprintTests
 	private readonly string _address;
 
 	public ApiKeyCertificateThumbprintTests(QdrantSecuredFixture qdrantFixture) =>
-		_address = $"https://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}";
+		// must explicitly use localhost, as dotnet linux will send 127.0.0.1 which
+		// errors in rustls
+		// [ WARN  rustls::msgs::handshake] Illegal SNI hostname received [49, 50, 55, 46, 48, 46, 48, 46, 49]
+		// [ WARN  rustls::common_state] Sending fatal alert DecodeError
+		_address = $"https://localhost:{qdrantFixture.GrpcPort}";
 
 	[Fact]
 	public void ClientConfiguredWithApiKeyAndCertValidationCanConnect()
@@ -28,7 +32,6 @@ public class ApiKeyCertificateThumbprintTests
 		var client = new QdrantGrpcClient(address);
 
 		var response = client.Qdrant.HealthCheck(new HealthCheckRequest());
-
 		response.Title.Should().NotBeNullOrEmpty();
 		response.Version.Should().NotBeNullOrEmpty();
 	}

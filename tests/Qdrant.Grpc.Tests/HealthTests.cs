@@ -1,6 +1,4 @@
 ﻿using FluentAssertions;
-using Grpc.Net.Client;
-using Qdrant;
 using Xunit;
 
 namespace Qdrant.Grpc.Tests;
@@ -12,7 +10,7 @@ public class HealthTests
 
     public HealthTests(QdrantFixture qdrantFixture)
     {
-        var address = GrpcChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
+        var address = QdrantChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
         _client = new QdrantGrpcClient(address);
     }
 

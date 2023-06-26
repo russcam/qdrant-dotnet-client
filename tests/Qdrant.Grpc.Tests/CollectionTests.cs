@@ -12,7 +12,7 @@ public class CollectionTests
 
 	public CollectionTests(QdrantFixture qdrantFixture)
 	{
-		var address = GrpcChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
+		var address = QdrantChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
 		_client = new QdrantGrpcClient(address);
 	}
 
