@@ -1,4 +1,4 @@
-﻿namespace Qdrant;
+﻿namespace Qdrant.Grpc;
 
 public partial class Value
 {
