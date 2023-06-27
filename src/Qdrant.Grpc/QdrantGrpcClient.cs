@@ -1,5 +1,4 @@
 ﻿using Grpc.Core;
-using Qdrant;
 
 namespace Qdrant.Grpc;
 

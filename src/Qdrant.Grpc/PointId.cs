@@ -1,4 +1,4 @@
-﻿namespace Qdrant;
+﻿namespace Qdrant.Grpc;
 
 /// <summary>
 /// The id of a point
