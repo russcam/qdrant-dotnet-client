@@ -1,7 +1,9 @@
-using Grpc.Core;
+#if NETFRAMEWORK
+using Grpc.Net.Client.Web;
+#endif
+
 using Grpc.Core.Interceptors;
 using Grpc.Net.Client;
-using Grpc.Net.Client.Web;
 using Qdrant.Grpc;
 
 namespace Examples;
