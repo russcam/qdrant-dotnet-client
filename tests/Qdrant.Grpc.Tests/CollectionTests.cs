@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Grpc.Net.Client;
 using Qdrant;
 using Xunit;

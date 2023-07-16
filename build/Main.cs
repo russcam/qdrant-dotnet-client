@@ -1,4 +1,4 @@
-﻿using System.CommandLine;
+using System.CommandLine;
 using System.IO.Compression;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
@@ -41,6 +41,7 @@ cmd.SetHandler(async () =>
 	Target(Restore, () =>
 	{
 		Run("dotnet", "restore");
+		Run("dotnet", "tool restore");
 	});
 
 	Target(CleanBuildOutput, DependsOn(Restore), () =>
@@ -87,22 +88,27 @@ cmd.SetHandler(async () =>
 			for (var i = 0; i < contents.Count; i++)
 			{
 				if (contents[i].StartsWith("syntax") ||
-				    contents[i].StartsWith("import") ||
-				    contents[i].StartsWith("package") ||
-				    contents[i].StartsWith("//") ||
-				    string.IsNullOrWhiteSpace(contents[i]))
+					contents[i].StartsWith("import") ||
+					contents[i].StartsWith("package") ||
+					contents[i].StartsWith("//") ||
+					string.IsNullOrWhiteSpace(contents[i]))
 					continue;
 
 				index = i;
 				break;
 			}
 
-			contents.Insert(index,$"option csharp_namespace = \"{project}\";");
+			contents.Insert(index, $"option csharp_namespace = \"{project}\";");
 			File.WriteAllLines(file, contents);
 		}
 	});
 
-	Target(Build, DependsOn(DownloadProtos, CleanBuildOutput), () =>
+	Target(Format, DependsOn(Restore), () =>
+	{
+		Run("dotnet", "dotnet-format");
+	});
+
+	Target(Build, DependsOn(DownloadProtos, CleanBuildOutput, Format), () =>
 	{
 		Run("dotnet", "build -c Release --nologo");
 	});
@@ -141,6 +147,7 @@ internal static class BuildTargets
 	public const string Test = "test";
 	public const string Default = "default";
 	public const string Restore = "restore";
+	public const string Format = "format";
 	public const string Pack = "pack";
 	public const string DownloadProtos = "download-protos";
 }

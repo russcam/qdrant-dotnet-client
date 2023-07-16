@@ -16,6 +16,23 @@ public class Client
 		#endregion
 	}
 
+#if NETFRAMEWORK
+	public void CreateClientNetFramework()
+	{
+		#region CreateClientNetFramework
+		var channel = GrpcChannel.ForAddress("https://localhost:6334", new GrpcChannelOptions
+		{
+			HttpHandler = new GrpcWebHandler(new WinHttpHandler
+			{
+				ServerCertificateValidationCallback =
+					CertificateValidation.Thumbprint("<certificate thumbprint>")
+			})
+		});
+		var client = new QdrantGrpcClient(channel);
+		#endregion
+	}
+#endif
+
 	public void CreateWithApiKey()
 	{
 		#region CreateClientWithApiKey
@@ -40,11 +57,13 @@ public class Client
 	}
 
 #if NETFRAMEWORK
-	public void CreateNetFramework()
+	public void CreateWithGrpcChannelNetFramework()
 	{
-		#region CreateNetFramework
+		#region CreateWithGrpcChannelNetFramework
 		var channel = GrpcChannel.ForAddress("https://localhost:6334", new GrpcChannelOptions
 		{
+			MaxRetryAttempts = 2,
+			MaxReceiveMessageSize = 8_388_608, // 8MB
 			HttpHandler = new GrpcWebHandler(new WinHttpHandler
 			{
 				ServerCertificateValidationCallback =
