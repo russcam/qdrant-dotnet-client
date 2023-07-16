@@ -1,6 +1,7 @@
-﻿using Grpc.Core;
+using Grpc.Core;
 using Grpc.Core.Interceptors;
 using Grpc.Net.Client;
+using Grpc.Net.Client.Web;
 using Qdrant.Grpc;
 
 namespace Examples;
@@ -38,10 +39,32 @@ public class Client
 		#endregion
 	}
 
+#if NETFRAMEWORK
+	public void CreateNetFramework()
+	{
+		#region CreateNetFramework
+		var channel = GrpcChannel.ForAddress("https://localhost:6334", new GrpcChannelOptions
+		{
+			HttpHandler = new GrpcWebHandler(new WinHttpHandler
+			{
+				ServerCertificateValidationCallback =
+					CertificateValidation.Thumbprint("<certificate thumbprint>")
+			})
+		});
+		var callInvoker = channel.Intercept(metadata =>
+		{
+			metadata.Add("api-key", "<api key>");
+			return metadata;
+		});
+		var client = new QdrantGrpcClient(callInvoker);
+		#endregion
+	}
+#endif
+
 	public void CreateWithGrpcChannel()
 	{
 		#region CreateClientWithGrpcChannel
-		var channel = GrpcChannel.ForAddress("http://localhost:6334", new GrpcChannelOptions
+		var channel = GrpcChannel.ForAddress("https://localhost:6334", new GrpcChannelOptions
 		{
 			MaxRetryAttempts = 2,
 			MaxReceiveMessageSize = 8_388_608, // 8MB

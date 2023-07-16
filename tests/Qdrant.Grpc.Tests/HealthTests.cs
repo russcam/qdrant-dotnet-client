@@ -8,11 +8,7 @@ public class HealthTests
 {
     private readonly QdrantGrpcClient _client;
 
-    public HealthTests(QdrantFixture qdrantFixture)
-    {
-        var address = QdrantChannel.ForAddress($"http://{qdrantFixture.Host}:{qdrantFixture.GrpcPort}");
-        _client = new QdrantGrpcClient(address);
-    }
+    public HealthTests(QdrantFixture qdrantFixture) => _client = qdrantFixture.CreateGrpcClient();
 
     [Fact]
     public void HealthCheck()
