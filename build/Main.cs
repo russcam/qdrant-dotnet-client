@@ -24,7 +24,7 @@ var cmd = new RootCommand
 	{
 		Description =
 			"A list of targets to run or list. If not specified, the \"default\" target will be run, or all targets will be listed.",
-	}
+	},
 };
 
 foreach (var (aliases, description) in Options.Definitions)
@@ -103,6 +103,11 @@ cmd.SetHandler(async () =>
 		}
 	});
 
+	Target(Docs, () =>
+	{
+		Run("docfx", "docfx/docfx.json --serve");
+	});
+
 	Target(Format, DependsOn(Restore), () =>
 	{
 		Run("dotnet", "dotnet-format");
@@ -150,4 +155,5 @@ internal static class BuildTargets
 	public const string Format = "format";
 	public const string Pack = "pack";
 	public const string DownloadProtos = "download-protos";
+	public const string Docs = "docs";
 }

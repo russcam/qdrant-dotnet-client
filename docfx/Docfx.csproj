@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\**" />
+    <None Include="**\**" />
+    <None Remove="_site\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+  
+</Project>

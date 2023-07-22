@@ -16,7 +16,7 @@ dotnet add package Qdrant.Grpc
 
 ### Documentation
 
-[See documentation](Documentation-url) for how to use the client.
+[See documentation][Documentation-url] for how to use the client.
 
 [Documentation-url]:https://forloop.co.uk/qdrant-dotnet-client/
 [QdrantDoc-image]:
