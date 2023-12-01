@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> ### This has been superseded by the [Official .NET SDK for Qdrant](https://github.com/qdrant/qdrant-dotnet). Please use that
+
 # .NET gRPC client for Qdrant vector database
 
 [![NuGet Release][QdrantGrpc-image]][QdrantGrpc-nuget-url]
